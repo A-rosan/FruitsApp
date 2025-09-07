@@ -23,7 +23,7 @@ class _SplashBodyState extends State<SplashBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SvgPicture.asset("assets/images/splash_tree.svg"),
           ],
