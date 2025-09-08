@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:fruits_app/features/onBoarding/presentation/views/onBoarding_screen.dart';
 import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart';
 
+import '../../features/auth/presentation/views/login_screen.dart';
+
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashScreen.rountName:
       return MaterialPageRoute(builder: (context) => SplashScreen());
-    case OnboardingScreen.rouName:
+    case OnboardingScreen.routName:
       return MaterialPageRoute(builder: (context) => OnboardingScreen());
+    case LoginScreen.routName:
+      return MaterialPageRoute(builder: (context) => LoginScreen());
     default:
       return MaterialPageRoute(builder: (context) => Scaffold());
   }

@@ -39,6 +39,8 @@ dependencies:
   flutter_svg: ^2.2.0
   gap: ^3.0.1
   dots_indicator: ^4.0.1
+  google_fonts: ^6.3.0
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_launcher_icons: "^0.14.4"

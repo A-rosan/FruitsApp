@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_app/core/utils/app_colors.dart';
+import 'package:fruits_app/core/utils/app_text_style.dart';
 
 import 'package:gap/gap.dart';
 
@@ -26,27 +28,17 @@ class OnBoardingPageView extends StatelessWidget {
             children: [
               Text(
                 "مرحبًا بك في",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23,
-                ),
+                style: AppTextStyle.bold23,
               ),
               Gap(5),
               Text(
                 "HUB",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23,
-                  color: Colors.amber,
-                ),
+                style: AppTextStyle.bold23
+                    .copyWith(color: AppColors.secondaryColor),
               ),
-              Text(
-                "Fruit",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 23,
-                    color: Colors.green),
-              ),
+              Text("Fruit",
+                  style: AppTextStyle.bold23
+                      .copyWith(color: AppColors.primaryColor)),
             ],
           ),
           subTitle:
@@ -61,10 +53,7 @@ class OnBoardingPageView extends StatelessWidget {
               children: [
                 Text(
                   "ابحث وتسوق",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 23,
-                  ),
+                  style: AppTextStyle.bold23,
                 ),
               ],
             ),

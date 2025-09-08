@@ -1,9 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruits_app/core/service/shared_pref_singlton.dart';
+import 'package:fruits_app/core/utils/app_constant.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../auth/presentation/views/login_screen.dart';
 import 'onBoarding_page_view.dart';
 
 class OnboardingBody extends StatefulWidget {
@@ -66,7 +69,11 @@ class _OnboardingBodyState extends State<OnboardingBody> {
             padding: const EdgeInsets.only(left: 20, right: 20, bottom: 40),
             child: CustomButton(
               buttonText: "ابدأ الان",
-              onPressed: () {},
+              onPressed: () {
+                Prefs.setBool(isOnboardingSeen, true);
+                Navigator.of(context)
+                    .pushReplacementNamed(LoginScreen.routName);
+              },
               width: double.infinity,
             ),
           ),

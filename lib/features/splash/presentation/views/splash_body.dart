@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruits_app/core/service/shared_pref_singlton.dart';
+import 'package:fruits_app/core/utils/app_constant.dart';
+import 'package:fruits_app/features/auth/presentation/views/login_screen.dart';
 import 'package:fruits_app/features/onBoarding/presentation/views/onBoarding_screen.dart';
 
 class SplashBody extends StatefulWidget {
@@ -40,7 +43,12 @@ class _SplashBodyState extends State<SplashBody> {
 
   void excuteNavigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, OnboardingScreen.rouName);
+      bool onBoardingSeen = Prefs.getBool(isOnboardingSeen);
+      if (onBoardingSeen) {
+        Navigator.pushReplacementNamed(context, LoginScreen.routName);
+      } else {
+        Navigator.pushReplacementNamed(context, OnboardingScreen.routName);
+      }
     });
   }
 }

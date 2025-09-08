@@ -1,10 +1,15 @@
-import 'package:dots_indicator/dots_indicator.dart';
+// import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_app/core/service/shared_pref_singlton.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
+import 'package:fruits_app/core/utils/app_constant.dart';
+import 'package:fruits_app/core/utils/app_text_style.dart';
+import 'package:fruits_app/features/auth/presentation/views/login_screen.dart';
+// import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../core/widgets/custom_button.dart';
+// import '../../../../../core/widgets/custom_button.dart';
 
 class PageViewItems extends StatelessWidget {
   const PageViewItems({
@@ -50,9 +55,14 @@ class PageViewItems extends StatelessWidget {
                   child: TextButton(
                     child: Text(
                       "تخط",
-                      style: TextStyle(color: Colors.black),
+                      style: AppTextStyle.regular13
+                          .copyWith(color: AppColors.grey),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Prefs.setBool(isOnboardingSeen, true);
+                      Navigator.of(context)
+                          .pushReplacementNamed(LoginScreen.routName);
+                    },
                   ),
                 ),
               )
@@ -63,14 +73,9 @@ class PageViewItems extends StatelessWidget {
         title,
         Gap(20),
         Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Text(
-            subTitle,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 17,
-            ),
-          ),
+          padding: const EdgeInsets.only(left: 40, right: 40),
+          child: Text(subTitle,
+              textAlign: TextAlign.center, style: AppTextStyle.semiBold13),
         ),
 
         // Gap(64),

@@ -4,7 +4,7 @@ import 'widgets/onBoarding_body.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
-  static const rouName = "onBoarding";
+  static const routName = "onBoarding";
 
   @override
   Widget build(BuildContext context) {
