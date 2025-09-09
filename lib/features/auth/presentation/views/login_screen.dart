@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widget/loging_screen_body.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
   static const routName = "login";
@@ -7,9 +9,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Login screen"),
-      ),
+      body: LoginBody(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_app/core/helper_functions/on_generate_route.dart';
 import 'package:fruits_app/core/service/shared_pref_singlton.dart';
+import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart';
 
 import 'generated/l10n.dart';
@@ -19,6 +20,10 @@ class FruitsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+      ),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
