@@ -4,12 +4,17 @@ import 'package:fruits_app/core/helper_functions/on_generate_route.dart';
 import 'package:fruits_app/core/service/shared_pref_singlton.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const FruitsApp());
 }
 
