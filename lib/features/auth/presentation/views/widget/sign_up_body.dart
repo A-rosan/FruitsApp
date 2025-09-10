@@ -59,7 +59,7 @@ class SignUpBody extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, "login");
+                    Navigator.pop(context);
                   },
                   child: Text(
                     "تسجيل الدخول",
