@@ -5,18 +5,33 @@ import 'package:fruits_app/core/utils/app_text_style.dart';
 import '../helper_functions/custom_out_line_border.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+  CustomTextFormField({
     super.key,
     required this.hintText,
     required this.keyboardType,
+    required this.controller,
     this.suffixIcon,
+    this.onSaved,
+    this.isPass = false,
   });
   final String hintText;
   final TextInputType? keyboardType;
   final Widget? suffixIcon;
+  final void Function(String?)? onSaved;
+  TextEditingController? controller;
+  final bool isPass;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      onSaved: onSaved,
+      obscureText: isPass,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        }
+        return null;
+      },
       keyboardType: keyboardType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,

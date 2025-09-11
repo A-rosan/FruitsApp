@@ -12,7 +12,9 @@ import '../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../core/widgets/or_divider.dart';
 
 class LoginBody extends StatelessWidget {
-  const LoginBody({super.key});
+  LoginBody({super.key});
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,13 @@ class LoginBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustomTextFormField(
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 hintText: "البريد الإلكتروني",
               ),
               Gap(16),
               CustomTextFormField(
+                controller: passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 hintText: "كلمة المرور",
                 suffixIcon: Icon(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
-import 'package:fruits_app/core/utils/app_constant.dart';
+// import 'package:fruits_app/core/utils/app_constant.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 import 'package:gap/gap.dart';
 
@@ -8,7 +8,11 @@ import '../../../../../core/widgets/custom_check_box.dart';
 // import 'package:gap/gap.dart';
 
 class TermsAndConditions extends StatefulWidget {
-  const TermsAndConditions({super.key});
+  const TermsAndConditions({
+    super.key,
+    required this.onChecked,
+  });
+  final ValueChanged<bool> onChecked;
 
   @override
   State<TermsAndConditions> createState() => _TermsAndConditionsState();
@@ -23,6 +27,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
         CustomCheckBox(
           onChecked: (value) {
             isTermsAccepted = value;
+            widget.onChecked(value);
             setState(() {});
           },
           isChecked: isTermsAccepted,
