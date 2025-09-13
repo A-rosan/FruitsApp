@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 
-import '../../features/auth/cubit/states.dart';
+// import '../../features/auth/cubit/sign_up_states.dart';
 
-void customSnackBar(BuildContext context, SignUpFailuer state) {
+void customSnackBar(BuildContext context, state) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(

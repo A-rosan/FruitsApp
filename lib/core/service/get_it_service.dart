@@ -1,4 +1,4 @@
-import 'package:fruits_app/core/service/firebase_auth.dart';
+import 'package:fruits_app/core/service/firebase_auth_service.dart';
 import 'package:fruits_app/features/auth/domain/repos/repos.dart';
 import 'package:get_it/get_it.dart';
 

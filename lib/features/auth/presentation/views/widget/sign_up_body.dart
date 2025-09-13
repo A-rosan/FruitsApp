@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/core/widgets/custom_button.dart';
-import 'package:fruits_app/features/auth/cubit/cubit.dart';
+import 'package:fruits_app/features/auth/cubit/sign_up_cubit.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -10,11 +10,11 @@ import '../../../../../core/utils/app_text_style.dart';
 import '../../../../../core/widgets/custom_pass_field.dart';
 import '../../../../../core/widgets/custom_snack_bar.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
-import '../../../cubit/states.dart';
+import '../../../cubit/sign_up_states.dart';
 import 'terms_and_conditions.dart';
 
 class SignUpBody extends StatefulWidget {
-  SignUpBody({super.key});
+  const SignUpBody({super.key});
 
   @override
   State<SignUpBody> createState() => _SignUpBodyState();

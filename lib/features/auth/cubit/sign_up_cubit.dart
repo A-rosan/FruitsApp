@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:fruits_app/core/errors/failuers.dart';
-import 'package:fruits_app/features/auth/cubit/states.dart';
+import 'package:fruits_app/features/auth/cubit/sign_up_states.dart';
 // import 'package:fruits_app/features/auth/domain/entites/users_intites.dart';
 import 'package:fruits_app/features/auth/domain/repos/repos.dart';
 
