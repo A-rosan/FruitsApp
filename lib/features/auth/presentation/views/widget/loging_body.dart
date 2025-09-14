@@ -109,7 +109,9 @@ class _LoginBodyState extends State<LoginBody> {
                   OrDivider(),
                   Gap(31),
                   CustomSocialButton(
-                    onTap: () {},
+                    onTap: () {
+                      cubit.signInWithGoogle();
+                    },
                     buttonText: "تسجيل بواسطة جوجل",
                     socialIcon: "assets/images/googleIcon.svg",
                   ),
