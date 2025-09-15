@@ -74,4 +74,31 @@ class AuthRepoImp extends AuthRepo {
       ));
     }
   }
+
+  Future<Either<Failuer, UsersIntites>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirbaseUser(user)); //right=>.then()
+    } // fail
+    catch (e) {
+      log("Exception in AuthrepoImp.signInWithFacebook: ${e.toString()}");
+      return left(ServerFailuer(
+        "لقد حدث خطأ ما يرجى المحاولة في وقت لاحق",
+      ));
+    }
+  }
+
+  @override
+  Future<Either<Failuer, UsersIntites>> signInWithApple() async {
+    try {
+      var user = await firebaseAuthService.signInWithApple();
+      return right(UserModel.fromFirbaseUser(user)); //right=>.then()
+    } // fail
+    catch (e) {
+      log("Exception in AuthrepoImp.signInWithApple: ${e.toString()}");
+      return left(ServerFailuer(
+        "لقد حدث خطأ ما يرجى المحاولة في وقت لاحق",
+      ));
+    }
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
@@ -116,14 +118,24 @@ class _LoginBodyState extends State<LoginBody> {
                     socialIcon: "assets/images/googleIcon.svg",
                   ),
                   Gap(16),
+                  Platform.isIOS
+                      ? Column(
+                          children: [
+                            CustomSocialButton(
+                              onTap: () {
+                                cubit.signInWithApple();
+                              },
+                              buttonText: "تسجيل بواسطة أبل",
+                              socialIcon: "assets/images/appleIconsSvg.svg",
+                            ),
+                            Gap(16),
+                          ],
+                        )
+                      : Gap(0),
                   CustomSocialButton(
-                    onTap: () {},
-                    buttonText: "تسجيل بواسطة أبل",
-                    socialIcon: "assets/images/appleIconsSvg.svg",
-                  ),
-                  Gap(16),
-                  CustomSocialButton(
-                    onTap: () {},
+                    onTap: () {
+                      cubit.signInWithFacebook();
+                    },
                     buttonText: "تسجيل بواسطة فيسبوك",
                     socialIcon: "assets/images/facebookIcon.svg",
                   ),
