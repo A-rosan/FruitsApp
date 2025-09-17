@@ -28,6 +28,7 @@ class SignUpScreen extends StatelessWidget {
           return BlocConsumer<SignUpCubit, SignUpStates>(
             listener: (context, state) {
               if (state is SignUpSuccsessState) {
+                customSuccessBar(context, "تم التسجيل بنجاح");
                 Navigator.pushReplacementNamed(context, "login");
               }
               if (state is SignUpFailuer) {

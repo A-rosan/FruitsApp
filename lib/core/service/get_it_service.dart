@@ -1,4 +1,6 @@
+import 'package:fruits_app/core/service/database_service.dart';
 import 'package:fruits_app/core/service/firebase_auth_service.dart';
+import 'package:fruits_app/core/service/firestore_service.dart';
 import 'package:fruits_app/features/auth/domain/repos/repos.dart';
 import 'package:get_it/get_it.dart';
 
@@ -8,6 +10,11 @@ final getIt = GetIt.instance;
 
 void setupGetIt() {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
+  getIt.registerSingleton<DatabaseService>(FireStoreService());
   getIt.registerSingleton<AuthRepo>(
-      AuthRepoImp(firebaseAuthService: getIt<FirebaseAuthService>()));
+    AuthRepoImp(
+      firebaseAuthService: getIt<FirebaseAuthService>(),
+      databaseService: getIt<DatabaseService>(),
+    ),
+  );
 }

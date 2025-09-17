@@ -1,7 +1,14 @@
-class UsersIntites {
+class UsersEntites {
   final String name;
   final String email;
   final String uId;
 
-  UsersIntites({required this.name, required this.email, required this.uId});
+  UsersEntites({required this.name, required this.email, required this.uId});
+  toMap() {
+    return {
+      "name": name,
+      "email": email,
+      "uId": uId,
+    };
+  }
 }

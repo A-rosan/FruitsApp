@@ -7,7 +7,7 @@ class SignUpInitState extends SignUpStates {}
 class SignUpLoadingState extends SignUpStates {}
 
 class SignUpSuccsessState extends SignUpStates {
-  final UsersIntites usersIntites;
+  final UsersEntites usersIntites;
 
   SignUpSuccsessState({required this.usersIntites});
 }

@@ -7,7 +7,7 @@ class LoginInitState extends LoginStates {}
 class LoginLoadingState extends LoginStates {}
 
 class LoginSuccsessState extends LoginStates {
-  final UsersIntites usersIntites;
+  final UsersEntites usersIntites;
 
   LoginSuccsessState({required this.usersIntites});
 }

@@ -13,3 +13,15 @@ void customSnackBar(BuildContext context, state) {
     ),
   );
 }
+
+void customSuccessBar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Colors.green.shade50,
+      content: Text(
+        message,
+        style: AppTextStyle.bold13.copyWith(color: Colors.green),
+      ),
+    ),
+  );
+}

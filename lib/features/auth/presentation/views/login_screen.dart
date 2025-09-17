@@ -24,9 +24,10 @@ class LoginScreen extends StatelessWidget {
         body: Builder(builder: (context) {
           return BlocConsumer<LoginCubit, LoginStates>(
             listener: (context, state) {
-              // if (state is LoginSuccsessState) {
-              //   navigate to home screen
-              // }
+              if (state is LoginSuccsessState) {
+                customSuccessBar(context, "تم تسجيل الدخول بنجاح");
+                // Navigator.pushReplacementNamed(context, "home");
+              }
               if (state is LoginFailuer) {
                 customSnackBar(context, state);
               }
