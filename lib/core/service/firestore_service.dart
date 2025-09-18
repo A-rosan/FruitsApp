@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../features/auth/data/models/users_model.dart';
-import '../../features/auth/domain/entites/users_intites.dart';
+// import '../../features/auth/data/models/users_model.dart';
+// import '../../features/auth/domain/entites/users_intites.dart';
 import 'database_service.dart';
 
 class FireStoreService implements DatabaseService {

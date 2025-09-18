@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 
-import '../helper_functions/custom_out_line_border.dart';
+import 'custom_out_line_border.dart';
 
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField({

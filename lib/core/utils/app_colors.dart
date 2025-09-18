@@ -8,4 +8,5 @@ abstract class AppColors {
   static const dividerColor = Color(0xffDDDFDF);
   static const lightPrimary = Color(0xff2D9F5D);
   static const checkBoxSidColor = Color(0xffdcdede);
+  static const circleAvatarColor = Color(0xffEEF8ED);
 }

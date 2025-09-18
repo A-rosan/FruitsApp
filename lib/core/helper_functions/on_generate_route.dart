@@ -4,6 +4,7 @@ import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart
 
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/sign_up_screen.dart';
+import '../../features/home/presentation/views/home_screen.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -15,6 +16,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LoginScreen());
     case SignUpScreen.routName:
       return MaterialPageRoute(builder: (context) => SignUpScreen());
+    case HomeScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const HomeScreen());
     default:
       return MaterialPageRoute(builder: (context) => Scaffold());
   }

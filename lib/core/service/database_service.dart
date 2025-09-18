@@ -1,4 +1,4 @@
-import 'package:fruits_app/features/auth/domain/entites/users_intites.dart';
+// import 'package:fruits_app/features/auth/domain/entites/users_intites.dart';
 
 abstract class DatabaseService {
   // Database service implementation

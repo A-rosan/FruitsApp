@@ -42,6 +42,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.2.0
+  flutter_svg_provider: ^1.0.7
   gap: ^3.0.1
   get_it: ^8.2.0
   google_fonts: ^6.3.0

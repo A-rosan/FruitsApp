@@ -8,7 +8,7 @@ import 'package:fruits_app/features/auth/cubit/login_cubit.dart';
 import 'package:gap/gap.dart';
 // import 'package:fruits_app/core/utils/app_text_style.dart';
 
-import '../../../../../core/helper_functions/custom_app_bar.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_constant.dart';
 import '../../../../../core/widgets/custom_pass_field.dart';
 import '../../../../../core/widgets/custom_social_button.dart';
@@ -79,6 +79,7 @@ class _LoginBodyState extends State<LoginBody> {
                         formKey.currentState!.save();
                         cubit.signIn(
                             emailController.text, passwordController.text);
+                        Navigator.pushNamed(context, "home");
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;
