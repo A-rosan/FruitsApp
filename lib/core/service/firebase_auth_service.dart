@@ -148,6 +148,11 @@ class FirebaseAuthService {
         .user!;
   }
 
+  bool isLoggedIn() {
+    final user = FirebaseAuth.instance.currentUser;
+    return user != null;
+  }
+
   // Future<User?> signInWithGoogle() async {
   //   try {
   //     // Trigger the authentication flow

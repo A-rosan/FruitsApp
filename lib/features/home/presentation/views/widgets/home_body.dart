@@ -6,6 +6,8 @@ import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/app_constant.dart';
 import '../../../../../core/widgets/custom_search_bar.dart';
+import '../../../../best_selling/presentation/views/best_selling_screen.dart';
+import 'best_selling_grid.dart';
 import 'feature_container.dart';
 import 'items_build.dart';
 
@@ -49,18 +51,24 @@ class HomeBody extends StatelessWidget {
                       "الأكثر مبيعًا",
                       style: AppTextStyle.bold16,
                     ),
-                    Text(
-                      "المزيد",
-                      style: AppTextStyle.regular13
-                          .copyWith(color: AppColors.greyText),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, BestSellingScreen.routeName);
+                      },
+                      child: Text(
+                        "المزيد",
+                        style: AppTextStyle.regular13
+                            .copyWith(color: AppColors.greyText),
+                      ),
                     ),
                   ],
                 ),
                 Gap(8),
-                ItemsBuildWidget(),
               ],
             ),
-          )
+          ),
+          BestSellingGrid(),
         ],
       ),
     );
