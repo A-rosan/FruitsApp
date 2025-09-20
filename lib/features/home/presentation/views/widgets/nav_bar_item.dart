@@ -5,6 +5,7 @@ import 'active_item.dart';
 import 'un_active_item.dart';
 
 class NavBarItem extends StatelessWidget {
+  //todo navigate between screens...
   const NavBarItem({
     super.key,
     this.isActive = false,

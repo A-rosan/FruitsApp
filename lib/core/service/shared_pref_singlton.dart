@@ -20,6 +20,16 @@ class Prefs {
     return _instance.getBool(key) ?? false;
   }
 
+  //set string
+  static setString(String key, String value) async {
+    await _instance.setString(key, value);
+  }
+
+  //get string
+  static String? getString(String key) {
+    return _instance.getString(key) ?? "";
+  }
+
   // Login state management
   // static Future<void> setLoggedIn(bool value) async {
   //   await _instance.setBool(isLoggedInKey, value);

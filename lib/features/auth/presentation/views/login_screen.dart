@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
             listener: (context, state) {
               if (state is LoginSuccsessState) {
                 customSuccessBar(context, "تم تسجيل الدخول بنجاح");
-                // Navigator.pushReplacementNamed(context, "home");
+                Navigator.pushReplacementNamed(context, "home");
               }
               if (state is LoginFailuer) {
                 customSnackBar(context, state);

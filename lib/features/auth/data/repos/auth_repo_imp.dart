@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -10,6 +11,8 @@ import 'package:fruits_app/features/auth/domain/entites/users_intites.dart';
 import 'package:fruits_app/features/auth/domain/repos/repos.dart';
 
 import '../../../../core/service/firebase_auth_service.dart';
+import '../../../../core/service/shared_pref_singlton.dart';
+import '../../../../core/utils/app_constant.dart';
 import '../../../../core/utils/end_points.dart';
 
 class AuthRepoImp extends AuthRepo {
@@ -40,6 +43,9 @@ class AuthRepoImp extends AuthRepo {
         uId: user.uid,
       );
       await addUserData(user: userEntity);
+      // var userData = await getUserData(uId: user.uid);
+      //save user data to shared pref
+      // await saveUserData(user: userData);
       //return user
       return right(userEntity); //right=>.then()
     } // fail
@@ -70,6 +76,7 @@ class AuthRepoImp extends AuthRepo {
         password: password,
       );
       var userData = await getUserData<UsersEntites>(uId: user.uid);
+      await saveUserData(user: userData);
       log("user info$userData");
       return right(userData); //right=>.then()
     } // fail
@@ -89,18 +96,29 @@ class AuthRepoImp extends AuthRepo {
     User? user;
 
     try {
+      // Sign in with Google
       user = await firebaseAuthService.signInWithGoogle();
+
+      // Create user entity from Google sign-in data
+      var userEntity = UserModel.fromFirbaseUser(user);
+
+      // Check if user exists in Firestore
       var isUserExist = await databaseService.isDataExist(
         path: EndPoints.isUserExist,
         docId: user.uid,
       );
-      var userEntity = UserModel.fromFirbaseUser(user);
-      await addUserData(user: userEntity);
-      if (isUserExist) {
-        await getUserData(uId: user.uid);
-      } else {
+
+      if (!isUserExist) {
+        // If user doesn't exist, save to Firestore
         await addUserData(user: userEntity);
+      } else {
+        // If user exists, get latest data from Firestore
+        userEntity = await getUserData<UsersEntites>(uId: user.uid);
       }
+
+      // Save to SharedPreferences for local access
+      await saveUserData(user: userEntity);
+
       return right(userEntity); //right=>.then()
     } // fail
     catch (e) {
@@ -113,6 +131,7 @@ class AuthRepoImp extends AuthRepo {
   }
 
   //sign in with facebook
+  @override
   Future<Either<Failuer, UsersEntites>> signInWithFacebook() async {
     User? user;
     try {
@@ -164,7 +183,7 @@ class AuthRepoImp extends AuthRepo {
     try {
       await databaseService.addData(
         path: EndPoints.addUserData,
-        data: user.toMap(),
+        data: UserModel.fromEntites(user).toMap(),
         docId: user.uId,
       );
     } catch (e) {
@@ -188,5 +207,12 @@ class AuthRepoImp extends AuthRepo {
       docId: uId,
     );
     return UserModel.fromJson(userData);
+  }
+
+  @override
+  Future saveUserData({required UsersEntites user}) async {
+    String jsonData = jsonEncode(UserModel.fromEntites(user).toMap());
+    await Prefs.setString("userData", jsonData);
+    log("User data saved to SharedPreferences: $jsonData");
   }
 }

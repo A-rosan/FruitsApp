@@ -5,6 +5,7 @@ import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 import 'package:fruits_app/core/widgets/custom_button.dart';
 import 'package:fruits_app/features/auth/cubit/login_cubit.dart';
+import 'package:fruits_app/features/auth/cubit/login_states.dart';
 import 'package:gap/gap.dart';
 // import 'package:fruits_app/core/utils/app_text_style.dart';
 
@@ -79,7 +80,7 @@ class _LoginBodyState extends State<LoginBody> {
                         formKey.currentState!.save();
                         cubit.signIn(
                             emailController.text, passwordController.text);
-                        Navigator.pushNamed(context, "home");
+                        // Navigator.pushNamed(context, "home");
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;
@@ -114,6 +115,7 @@ class _LoginBodyState extends State<LoginBody> {
                   CustomSocialButton(
                     onTap: () {
                       cubit.signInWithGoogle();
+                      Navigator.pushNamed(context, "home");
                     },
                     buttonText: "تسجيل بواسطة جوجل",
                     socialIcon: "assets/images/googleIcon.svg",
