@@ -9,10 +9,10 @@ import '../../../../../core/widgets/custom_search_bar.dart';
 import '../../../../best_selling/presentation/views/best_selling_screen.dart';
 import 'best_selling_grid.dart';
 import 'feature_container.dart';
-import 'items_build.dart';
+// import 'items_build.dart';
 
-class HomeBody extends StatelessWidget {
-  HomeBody({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
   TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {

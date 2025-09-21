@@ -12,5 +12,7 @@ abstract class AppColors {
   static const circleAvatarColor = Color(0xffEEF8ED);
   static const containerColor = Color(0xffF3F5F7);
   static const favColor = Color(0xff292D32);
+  static const textProfileColor = Color(0xff888FA0);
+  static const logOutColor = Color(0xffEBF9F1);
   // static const itemTextColor = Color(0xffF4A91F);
 }

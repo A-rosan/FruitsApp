@@ -5,7 +5,8 @@ import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/sign_up_screen.dart';
 import '../../features/best_selling/presentation/views/best_selling_screen.dart';
-import '../../features/home/presentation/views/home_screen.dart';
+import '../../features/home/presentation/views/main_screen.dart';
+import '../../features/profile/presentation/views/widgets/dash_board/dash_board.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -17,10 +18,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LoginScreen());
     case SignUpScreen.routName:
       return MaterialPageRoute(builder: (context) => SignUpScreen());
-    case HomeScreen.routeName:
-      return MaterialPageRoute(builder: (context) => const HomeScreen());
+    case MainScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const MainScreen());
     case BestSellingScreen.routeName:
       return MaterialPageRoute(builder: (context) => const BestSellingScreen());
+    case DashBoardScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const DashBoardScreen());
     default:
       return MaterialPageRoute(builder: (context) => Scaffold());
   }
