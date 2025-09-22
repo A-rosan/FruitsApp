@@ -6,7 +6,8 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/sign_up_screen.dart';
 import '../../features/best_selling/presentation/views/best_selling_screen.dart';
 import '../../features/home/presentation/views/main_screen.dart';
-import '../../features/profile/presentation/views/widgets/dash_board/dash_board.dart';
+import '../../features/profile/presentation/views/widgets/dash_board/add_data_screen.dart';
+import '../../features/profile/presentation/views/widgets/dash_board/widgets/dash_board_body.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -22,8 +23,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const MainScreen());
     case BestSellingScreen.routeName:
       return MaterialPageRoute(builder: (context) => const BestSellingScreen());
-    case DashBoardScreen.routeName:
-      return MaterialPageRoute(builder: (context) => const DashBoardScreen());
+    case AddDataScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const AddDataScreen());
+    case DashBoardBody.routeName:
+      return MaterialPageRoute(builder: (context) => DashBoardBody());
     default:
       return MaterialPageRoute(builder: (context) => Scaffold());
   }

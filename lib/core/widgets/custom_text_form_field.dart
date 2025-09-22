@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.onSaved,
     this.isPass = false,
+    this.maxLines,
   });
   final String hintText;
   final TextInputType? keyboardType;
@@ -20,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   TextEditingController? controller;
   final bool isPass;
+  int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -33,6 +35,7 @@ class CustomTextFormField extends StatelessWidget {
         return null;
       },
       keyboardType: keyboardType,
+      maxLines: maxLines ?? 1,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         hintText: hintText,
