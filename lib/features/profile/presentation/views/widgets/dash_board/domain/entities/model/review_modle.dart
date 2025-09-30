@@ -5,7 +5,7 @@ class ReviewModle {
   final String image;
   final String date;
   final String reviewDesc;
-  final String ratting;
+  final num ratting;
 
   ReviewModle({
     required this.name,
@@ -39,4 +39,14 @@ class ReviewModle {
         "reviewDesc": reviewDesc,
         "ratting": ratting,
       };
+
+  ReviewEntity toEntity() {
+    return ReviewEntity(
+      name: name,
+      image: image,
+      date: date,
+      reviewDesc: reviewDesc,
+      ratting: ratting,
+    );
+  }
 }

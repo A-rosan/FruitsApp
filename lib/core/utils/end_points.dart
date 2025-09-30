@@ -4,4 +4,5 @@ class EndPoints {
   static const getUserData = "users";
   static const isUserExist = "users";
   static const addProduct = "products";
+  static const getProduct = "products";
 }

@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cart/presentation/views/cart_screen.dart';
 import '../../products/presentation/views/products_screen.dart';
 import '../../profile/presentation/views/profile_screen.dart';
-import '../presentation/views/widgets/home_screen.dart';
+import '../presentation/views/widgets/home_screen/home_screen.dart';
 import 'states.dart';
 
-class NavigationCubit extends Cubit<NavigateStates> {
-  NavigationCubit() : super(NavigateInitialState());
+class NavigationCubit extends Cubit<NaviBarStates> {
+  NavigationCubit() : super(NavBarInitialState());
   static NavigationCubit get(context) => BlocProvider.of(context);
   int currentIndex = 0;
   List<Widget> screens = [
@@ -20,6 +20,6 @@ class NavigationCubit extends Cubit<NavigateStates> {
   ];
   void changeNavBar(int index) {
     currentIndex = index;
-    emit(ChangeNavBarState());
+    emit(NavBarSuccessState());
   }
 }

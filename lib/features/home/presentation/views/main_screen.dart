@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_btm_nav_bar.dart';
 import '../../cubit/cubit.dart';
 import '../../cubit/states.dart';
-import 'widgets/home_screen.dart';
+// import 'widgets/home_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -13,7 +13,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NavigationCubit(),
-      child: BlocConsumer<NavigationCubit, NavigateStates>(
+      child: BlocConsumer<NavigationCubit, NaviBarStates>(
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = NavigationCubit.get(context);

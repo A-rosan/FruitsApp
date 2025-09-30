@@ -1,14 +1,12 @@
-abstract class NavigateStates {}
+abstract class NaviBarStates {}
 
-class NavigateInitialState extends NavigateStates {}
+class NavBarInitialState extends NaviBarStates {}
 
-class ChangeNavBarState extends NavigateStates {}
+class NavBarSuccessState extends NaviBarStates {}
 
-class NavigateLoadingState extends NavigateStates {}
+class NavBarLoadingState extends NaviBarStates {}
 
-class NavigateSuccessState extends NavigateStates {}
-
-class NavigateErrorState extends NavigateStates {
+class NavBarErrorState extends NaviBarStates {
   final String error;
-  NavigateErrorState(this.error);
+  NavBarErrorState(this.error);
 }

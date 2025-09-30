@@ -17,7 +17,7 @@ class CustomBtmNavBar extends StatefulWidget {
 class _CustomBtmNavBarState extends State<CustomBtmNavBar> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavigationCubit, NavigateStates>(
+    return BlocBuilder<NavigationCubit, NaviBarStates>(
         builder: (context, state) {
       var cubit = NavigationCubit.get(context);
       return Container(

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/entities/review_entity.dart';
+// import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/entities/review_entity.dart';
 
 class AddProductInputEntity {
   final String? productName;
@@ -16,7 +16,7 @@ class AddProductInputEntity {
   final String? unitMount;
   int avgRating = 0;
   int ratingCount = 0;
-  final List<ReviewEntity> reviews;
+  final List<dynamic> reviews; //todo List<ReviewEntity>
 
   AddProductInputEntity({
     required this.productName,

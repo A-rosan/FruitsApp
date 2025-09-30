@@ -20,15 +20,22 @@ void setupGetIt() {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   getIt.registerSingleton<DatabaseService>(FireStoreService());
   getIt.registerSingleton<StorageService>(FirestorageService());
+
   getIt.registerSingleton<ProductsRepo>(ProductsRepoImp(
     databaseService: getIt<DatabaseService>(),
   ));
   getIt.registerSingleton<ImagesRepo>(
-      ImagesRepoImp(storageService: getIt<StorageService>()));
+    ImagesRepoImp(storageService: getIt<StorageService>()),
+  );
   getIt.registerSingleton<AuthRepo>(
     AuthRepoImp(
       firebaseAuthService: getIt<FirebaseAuthService>(),
       databaseService: getIt<DatabaseService>(),
     ),
   );
+  // getIt.registerSingleton<ProductsRepo>(
+  //   ProductsRepoImp(
+  //     databaseService: getIt<DatabaseService>(),
+  //   ),
+  // );
 }

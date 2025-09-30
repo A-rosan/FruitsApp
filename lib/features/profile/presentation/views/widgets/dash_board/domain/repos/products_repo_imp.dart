@@ -27,4 +27,42 @@ class ProductsRepoImp implements ProductsRepo {
       return left(ServerFailuer("حدث خطا في اضافة المنتج"));
     }
   }
+
+  //get best selling
+
+  @override
+  Future<Either<Failuer, List<AddProductInputEntity>>> getBestSellings() async {
+    try {
+      var data = await databaseService.getData(
+        path: EndPoints.getProduct,
+        query: {
+          "limit": 10,
+          "orderBy": "sellingCount",
+          "decending": true,
+        },
+      ) as List<Map<String, dynamic>>;
+      List<AddProductInputEntity> products =
+          data.map((e) => AddProductModel.fromJson(e).toEntity()).toList();
+      // List<AddProductInputEntity> productsEntity= products.map((e) => e.toEntity()).toList();
+      return right(products);
+    } catch (e) {
+      return left(ServerFailuer("حدث خطا في جلب المنتجات"));
+    }
+  }
+
+  //get products
+
+  @override
+  Future<Either<Failuer, List<AddProductInputEntity>>> getProducts() async {
+    try {
+      var data = await databaseService.getData(path: EndPoints.getProduct)
+          as List<Map<String, dynamic>>;
+      List<AddProductInputEntity> products =
+          data.map((e) => AddProductModel.fromJson(e).toEntity()).toList();
+      // List<AddProductInputEntity> productsEntity= products.map((e) => e.toEntity()).toList();
+      return right(products);
+    } catch (e) {
+      return left(ServerFailuer("حدث خطا في جلب المنتجات"));
+    }
+  }
 }
