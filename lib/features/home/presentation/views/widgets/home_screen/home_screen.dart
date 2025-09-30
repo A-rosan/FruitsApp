@@ -15,7 +15,7 @@ import '../../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../../core/widgets/custom_search_bar.dart';
 import '../../../../../best_selling/presentation/views/best_selling_screen.dart';
 import '../../../../../profile/presentation/views/widgets/dash_board/domain/repos/products_repo.dart';
-import '../best_selling_grid.dart';
+import '../products_grid_build.dart';
 import '../feature_container.dart';
 // import 'items_build.dart';
 
@@ -25,9 +25,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductsCubit(getIt<ProductsRepo>())
-        ..getBestSellings()
-        ..getProducts(),
+      create: (context) =>
+          ProductsCubit(getIt<ProductsRepo>())..getBestSellings(),
+      // ..getProducts(),
       child: BlocConsumer<ProductsCubit, ProductsStates>(
           listener: (context, state) {},
           builder: (context, state) {
@@ -85,13 +85,13 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   state is ProductsSuccessState
-                      ? BestSellingGrid(products: state.products)
+                      ? ProductsGridBuild(products: state.products)
                       : state is ProductsErrorState
                           ? SliverToBoxAdapter(
                               child: CustomErrorWidget(text: state.errorMsg))
                           : Skeletonizer.sliver(
                               enabled: true,
-                              child: BestSellingGrid(
+                              child: ProductsGridBuild(
                                 products: getDummy(),
                               ),
                             ),

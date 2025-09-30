@@ -3,8 +3,8 @@ import 'package:fruits_app/features/profile/presentation/views/widgets/dash_boar
 
 import 'items_build.dart';
 
-class BestSellingGrid extends StatelessWidget {
-  const BestSellingGrid({
+class ProductsGridBuild extends StatelessWidget {
+  const ProductsGridBuild({
     super.key,
     required this.products,
   });
