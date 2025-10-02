@@ -44,7 +44,7 @@ class _CustomBtmNavBarState extends State<CustomBtmNavBar> {
           padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: BtmNavBarEntity(
+            children: BtmNavBarItemess(
               activeImage: "assets/images/fill_home.svg",
               unActiveImage: "assets/images/home.svg",
               name: "الرئيسية",

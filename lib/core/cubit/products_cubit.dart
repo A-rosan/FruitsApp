@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/core/cubit/products_states.dart';
-import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/entities/add_product_input_entity.dart';
+// import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/entities/add_product_input_entity.dart';
 import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/repos/products_repo.dart';
 
 class ProductsCubit extends Cubit<ProductsStates> {

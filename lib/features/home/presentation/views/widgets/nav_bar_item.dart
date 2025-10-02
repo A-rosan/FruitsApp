@@ -12,7 +12,7 @@ class NavBarItem extends StatelessWidget {
     required this.item,
   });
   final bool isActive;
-  final BtmNavBarEntity item;
+  final BtmNavBarItemess item;
   @override
   Widget build(BuildContext context) {
     return isActive

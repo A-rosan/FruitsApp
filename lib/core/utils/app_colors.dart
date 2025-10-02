@@ -6,6 +6,7 @@ abstract class AppColors {
   static const lightSecondaryColor = Color(0xFFFFE5B4);
   static const grey = Color(0xff949D9E);
   static const greyText = Color(0xff616A6B);
+  static const greyIcon = Color(0xff949D9E);
   static const dividerColor = Color(0xffDDDFDF);
   static const lightPrimary = Color(0xff2D9F5D);
   static const checkBoxSidColor = Color(0xffdcdede);
