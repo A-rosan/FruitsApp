@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../../best_selling/presentation/views/best_selling_screen.dart';
+import '../../cart/domain/entity/cart_items_entity.dart';
 import '../../cart/presentation/views/cart_screen.dart';
 import '../../products/presentation/views/products_screen.dart';
 import '../../profile/presentation/views/profile_screen.dart';
