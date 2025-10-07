@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/features/cart/domain/entity/cart_items_entity.dart';
 import 'package:gap/gap.dart';
@@ -16,12 +16,13 @@ class CartWidgetBuild extends StatelessWidget {
     required this.cartItemEntity,
   });
   final CartItemsEntity cartItemEntity;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartStates>(
       builder: (context, state) {
-        //todo rebuild widget when count change
         var cubit = CartCubit.get(context);
+        // var totalPrice = cubit.cartEntity.calculateTotalPrice();
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: hrAppPadding),
           child: Row(
@@ -76,7 +77,8 @@ class CartWidgetBuild extends StatelessWidget {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                cartItemEntity.incraseCount();
+                                cubit.increaseItemCount(
+                                    cartItemEntity.productEntity);
                               },
                               child: Container(
                                 height: 28,
@@ -97,7 +99,8 @@ class CartWidgetBuild extends StatelessWidget {
                             Gap(12),
                             GestureDetector(
                               onTap: () {
-                                cartItemEntity.decreasCount();
+                                cubit.decreaseItemCount(
+                                    cartItemEntity.productEntity);
                               },
                               child: Container(
                                 height: 28,

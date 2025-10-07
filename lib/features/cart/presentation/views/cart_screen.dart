@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/features/cart/cubit/cubit.dart';
 import 'package:fruits_app/features/cart/cubit/states.dart';
-import 'package:fruits_app/features/cart/domain/entity/cart_items_entity.dart';
+// import 'package:fruits_app/features/cart/domain/entity/cart_items_entity.dart';
 import 'package:fruits_app/features/cart/presentation/views/widgets/cart_body.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
@@ -28,7 +28,6 @@ class CartScreen extends StatelessWidget {
           );
         },
       ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.center,
     );
   }
 }

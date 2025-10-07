@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
+
 import '../../../profile/presentation/views/widgets/dash_board/domain/entities/add_product_input_entity.dart';
 
-class CartItemsEntity {
+class CartItemsEntity extends Equatable {
   final AddProductInputEntity productEntity;
   int? count;
 
@@ -22,6 +24,11 @@ class CartItemsEntity {
   }
 
   decreasCount() {
-    count = count! - 1;
+    if (count! > 1) {
+      count = count! - 1;
+    }
   }
+
+  @override
+  List<Object?> get props => [productEntity];
 }

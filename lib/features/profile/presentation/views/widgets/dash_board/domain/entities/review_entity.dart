@@ -1,4 +1,4 @@
-import 'package:fruits_app/generated/l10n.dart';
+// import 'package:fruits_app/generated/l10n.dart';
 
 class ReviewEntity {
   final String name;

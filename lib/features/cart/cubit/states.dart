@@ -10,6 +10,8 @@ class AddCartItemState extends CartStates {}
 
 class RemoveCartItemState extends CartStates {}
 
+class UpdateCartState extends CartStates {}
+
 class CartErrorState extends CartStates {
   String errorMsg;
   CartErrorState({required this.errorMsg});

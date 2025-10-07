@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/feature_button.dart';
-import 'package:gap/gap.dart';
+// import 'package:gap/gap.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 // import 'package:fruits_app/generated/l10n.dart';
 

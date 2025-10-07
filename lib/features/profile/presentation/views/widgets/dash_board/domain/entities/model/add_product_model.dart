@@ -4,7 +4,7 @@ import 'package:fruits_app/features/profile/presentation/views/widgets/dash_boar
 import 'package:fruits_app/features/profile/presentation/views/widgets/dash_board/domain/entities/model/review_modle.dart';
 import 'package:fruits_app/core/helper_functions/avg_rating.dart';
 
-import '../review_entity.dart';
+// import '../review_entity.dart';
 
 class AddProductModel {
   final String? productName;

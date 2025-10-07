@@ -36,11 +36,11 @@ class CartEntity {
 
   //calculate total w price
 
-  num calculateTotalPrice() {
-    num totalPrice = 0;
-    for (var cartItem in cartItems!) {
-      totalPrice += cartItem.calculateTotalPrice();
-    }
-    return totalPrice;
-  }
+  // num calculateTotalPrice() {
+  //   num totalPrice = 0;
+  //   for (var cartItem in cartItems!) {
+  //     totalPrice += cartItem.calculateTotalPrice();
+  //   }
+  //   return totalPrice;
+  // }
 }
