@@ -34,13 +34,13 @@ class CartEntity {
     cartItems?.removeWhere((cartItem) => cartItem.productEntity == products);
   }
 
-  //calculate total w price
+  //calculate total  price
 
-  // num calculateTotalPrice() {
-  //   num totalPrice = 0;
-  //   for (var cartItem in cartItems!) {
-  //     totalPrice += cartItem.calculateTotalPrice();
-  //   }
-  //   return totalPrice;
-  // }
+  num calculateTotalPrice() {
+    num totalPrice = 0;
+    for (var cartItem in cartItems!) {
+      totalPrice += cartItem.calculateTotalPrice();
+    }
+    return totalPrice;
+  }
 }

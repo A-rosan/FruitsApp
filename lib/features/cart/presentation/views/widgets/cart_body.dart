@@ -6,7 +6,7 @@ import 'package:fruits_app/core/utils/app_text_style.dart';
 import 'package:fruits_app/core/widgets/costum_divider.dart';
 import 'package:fruits_app/core/widgets/custom_button.dart';
 import 'package:fruits_app/features/cart/cubit/cubit.dart';
-import 'package:fruits_app/features/cart/domain/entity/cart_entity.dart';
+// import 'package:fruits_app/features/cart/domain/entity/cart_entity.dart';
 import 'package:fruits_app/features/cart/domain/entity/cart_items_entity.dart';
 import 'package:gap/gap.dart';
 
@@ -65,11 +65,11 @@ class CartBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: hrAppPadding),
                 child: BlocBuilder<CartCubit, CartStates>(
                     builder: (context, state) {
-                  // var cubit = CartCubit.get(context);
+                  var cubit = CartCubit.get(context);
                   return CustomButton(
                     onPressed: () {},
                     buttonText:
-                        "${cartItems.first.calculateTotalPrice()} دولار",
+                        "${cubit.cartEntity.calculateTotalPrice().toStringAsFixed(2)} دولار",
                   );
                 }),
               )
