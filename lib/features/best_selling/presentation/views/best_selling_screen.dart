@@ -5,7 +5,7 @@ import 'widget/best_selling_body.dart';
 
 class BestSellingScreen extends StatelessWidget {
   const BestSellingScreen({super.key});
-  static const String routeName = 'bestSelling';
+  static const String routName = 'bestSelling';
 
   @override
   Widget build(BuildContext context) {

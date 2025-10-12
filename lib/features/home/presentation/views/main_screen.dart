@@ -11,7 +11,7 @@ import '../../cubit/states.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
-  static const String routeName = 'home';
+  static const String routName = 'home';
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

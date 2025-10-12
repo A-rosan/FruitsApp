@@ -28,7 +28,7 @@ import 'is_feature_product.dart';
 
 class DashBoardBody extends StatefulWidget {
   DashBoardBody({super.key});
-  static const routeName = 'dashBoardBody';
+  static const routName = 'dashBoardBody';
 
   @override
   State<DashBoardBody> createState() => _DashBoardBodyState();

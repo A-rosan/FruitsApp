@@ -5,7 +5,7 @@ import '../../../../../../core/widgets/custom_app_bar.dart';
 
 class AddDataScreen extends StatelessWidget {
   const AddDataScreen({super.key});
-  static const String routeName = 'dashBoard';
+  static const String routName = 'dashBoard';
 
   @override
   Widget build(BuildContext context) {

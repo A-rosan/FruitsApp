@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(
-                                    context, BestSellingScreen.routeName);
+                                    context, BestSellingScreen.routName);
                               },
                               child: Text(
                                 "المزيد",

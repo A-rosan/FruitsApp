@@ -44,7 +44,7 @@ class FruitsApp extends StatelessWidget {
       locale: Locale("ar"),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashScreen.rountName,
+      initialRoute: SplashScreen.routName,
     );
   }
 }
