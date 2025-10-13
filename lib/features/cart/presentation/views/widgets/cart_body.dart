@@ -68,7 +68,11 @@ class CartBody extends StatelessWidget {
                   var cubit = CartCubit.get(context);
                   return CustomButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, 'checkOutScreen');
+                      Navigator.pushNamed(
+                        context,
+                        'checkOutScreen',
+                        arguments: cubit.cartEntity,
+                      );
                     },
                     buttonText:
                         "${cubit.cartEntity.calculateTotalPrice()} دولار",

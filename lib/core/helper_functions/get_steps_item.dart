@@ -12,11 +12,3 @@ List<String> getSteps() {
     "الدفع",
   ];
 }
-
-List<Widget> getStepsPages() {
-  return [
-    ShippingSecion(),
-    AddressSection(),
-    PaymentSection(),
-  ];
-}

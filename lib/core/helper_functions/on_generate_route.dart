@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_app/features/cart/domain/entity/cart_entity.dart';
 import 'package:fruits_app/features/onBoarding/presentation/views/onBoarding_screen.dart';
 import 'package:fruits_app/features/splash/presentation/views/spalsh_screen.dart';
 
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/sign_up_screen.dart';
 import '../../features/best_selling/presentation/views/best_selling_screen.dart';
+// import '../../features/cart/domain/entity/cart_items_entity.dart';
 import '../../features/check_out/presentation/views/check_out.dart';
 import '../../features/home/presentation/views/main_screen.dart';
 import '../../features/profile/presentation/views/widgets/dash_board/add_data_screen.dart';
@@ -29,7 +31,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case DashBoardBody.routName:
       return MaterialPageRoute(builder: (context) => DashBoardBody());
     case CheckOutScreen.routName:
-      return MaterialPageRoute(builder: (context) => CheckOutScreen());
+      return MaterialPageRoute(
+          builder: (context) => CheckOutScreen(
+                cartEntity: settings.arguments as CartEntity,
+              ));
     default:
       return MaterialPageRoute(builder: (context) => Scaffold());
   }
