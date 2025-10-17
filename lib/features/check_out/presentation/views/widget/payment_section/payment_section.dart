@@ -1,20 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fruits_app/core/utils/app_constant.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:fruits_app/core/utils/app_constant.dart';
 // import 'package:fruits_app/core/utils/app_constant.dart';
 import 'package:fruits_app/core/utils/app_decorations.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 // import 'package:fruits_app/core/widgets/custom_app_bar.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/widgets/costum_divider.dart';
+import '../../../../domain/order_entity.dart';
 
 class PaymentSection extends StatelessWidget {
   const PaymentSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Safely read the current address and build a readable string.
+    // Use `watch` so the UI updates when the addressEntity changes.
+    final order = context.watch<OrderEntity>();
+    final addressEntity = order.addressEntity;
+    String addressText;
+    if (addressEntity == null) {
+      addressText = 'لم يتم إضافة عنوان';
+    } else {
+      final parts = [
+        addressEntity.address,
+        addressEntity.city,
+        addressEntity.floor
+      ];
+      addressText =
+          parts.where((p) => p != null && p.trim().isNotEmpty).join(', ');
+      if (addressText.isEmpty) addressText = 'لم يتم إضافة عنوان';
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -44,7 +63,7 @@ class PaymentSection extends StatelessWidget {
                           .copyWith(color: AppColors.greyText),
                     ),
                     Text(
-                      "150 جنيه",
+                      "\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice()}",
                       style: AppTextStyle.semiBold16,
                     ),
                   ],
@@ -62,7 +81,7 @@ class PaymentSection extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Text(
-                      "20 جنيه",
+                      "\$10",
                       style: AppTextStyle.semiBold13
                           .copyWith(color: AppColors.greyText),
                     ),
@@ -83,7 +102,7 @@ class PaymentSection extends StatelessWidget {
                     style: AppTextStyle.bold16,
                   ),
                   Text(
-                    "180 جنيه",
+                    "\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 10}",
                     style: AppTextStyle.bold16,
                   ),
                 ],
@@ -175,27 +194,27 @@ class PaymentSection extends StatelessWidget {
                         ),
                         Gap(5),
                         Text(
-                          "شارع النيل، مبنى رقم ١٢٣",
+                          addressText,
                           style: AppTextStyle.reg16
                               .copyWith(color: AppColors.greyText),
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.edit,
-                          size: 12,
-                          color: AppColors.greyText,
-                        ),
-                        Gap(5),
-                        Text(
-                          "تعديل",
-                          style: AppTextStyle.semiBold13
-                              .copyWith(color: AppColors.greyText),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.edit,
+                    //       size: 12,
+                    //       color: AppColors.greyText,
+                    //     ),
+                    //     Gap(5),
+                    //     Text(
+                    //       "تعديل",
+                    //       style: AppTextStyle.semiBold13
+                    //           .copyWith(color: AppColors.greyText),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ],

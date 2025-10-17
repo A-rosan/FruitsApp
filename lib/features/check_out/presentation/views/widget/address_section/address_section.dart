@@ -31,10 +31,11 @@ class _AddressSectionState extends State<AddressSection>
 
   TextEditingController phoneController = TextEditingController();
 
-  TextEditingController addressController2 = TextEditingController();
+  TextEditingController floorController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var provider = context.read<OrderEntity>();
     return ValueListenableBuilder<AutovalidateMode>(
       valueListenable: widget.valueListenable,
@@ -49,7 +50,7 @@ class _AddressSectionState extends State<AddressSection>
               keyboardType: TextInputType.name,
               controller: fullNameController,
               onSaved: (value) {
-                provider.addressEntity?.name = value ?? "";
+                provider.updateAddress(name: value ?? "");
               },
             ),
             Gap(8),
@@ -58,7 +59,7 @@ class _AddressSectionState extends State<AddressSection>
               keyboardType: TextInputType.emailAddress,
               controller: emailController,
               onSaved: (value) {
-                provider.addressEntity?.email = value ?? "";
+                provider.updateAddress(email: value ?? "");
               },
             ),
             Gap(8),
@@ -67,7 +68,7 @@ class _AddressSectionState extends State<AddressSection>
               keyboardType: TextInputType.text,
               controller: addressController,
               onSaved: (value) {
-                provider.addressEntity?.address = value ?? "";
+                provider.updateAddress(address: value ?? "");
               },
             ),
             Gap(8),
@@ -76,16 +77,16 @@ class _AddressSectionState extends State<AddressSection>
               keyboardType: TextInputType.text,
               controller: cityNameController,
               onSaved: (value) {
-                provider.addressEntity?.city = value ?? "";
+                provider.updateAddress(city: value ?? "");
               },
             ),
             Gap(8),
             CustomTextFormField(
               hintText: "رقم الطابق , رقم الشقه ..",
               keyboardType: TextInputType.text,
-              controller: addressController2,
+              controller: floorController,
               onSaved: (value) {
-                provider.addressEntity?.floor = value ?? "";
+                provider.updateAddress(floor: value ?? "");
               },
             ),
             Gap(8),
@@ -94,7 +95,7 @@ class _AddressSectionState extends State<AddressSection>
               keyboardType: TextInputType.phone,
               controller: phoneController,
               onSaved: (value) {
-                provider.addressEntity?.phone = value ?? "";
+                provider.updateAddress(phone: value ?? "");
               },
             ),
             Gap(16),
@@ -108,6 +109,5 @@ class _AddressSectionState extends State<AddressSection>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

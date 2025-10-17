@@ -10,12 +10,15 @@ import 'package:provider/provider.dart';
 // import '../../../../../core/utils/app_text_style.dart';
 // import '../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../core/widgets/custom_snack_bar.dart';
+import '../../../domain/address_entity.dart';
 import '../../../domain/order_entity.dart';
 // import 'active_step_item.dart';
 // import 'un_active_step_item.dart';
 
 class CheckOutBody extends StatefulWidget {
-  const CheckOutBody({super.key});
+  const CheckOutBody({
+    super.key,
+  });
 
   @override
   State<CheckOutBody> createState() => _CheckOutBodyState();

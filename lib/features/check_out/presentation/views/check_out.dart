@@ -8,10 +8,32 @@ import '../../domain/address_entity.dart';
 import '../../domain/order_entity.dart';
 import 'widget/check_out_body.dart';
 
-class CheckOutScreen extends StatelessWidget {
+class CheckOutScreen extends StatefulWidget {
   CheckOutScreen({super.key, required this.cartEntity});
   static const String routName = 'checkOutScreen';
   CartEntity cartEntity;
+
+  @override
+  State<CheckOutScreen> createState() => _CheckOutScreenState();
+}
+
+class _CheckOutScreenState extends State<CheckOutScreen> {
+  late final OrderEntity _order;
+
+  @override
+  void initState() {
+    super.initState();
+    _order = OrderEntity(
+      cartEntity: widget.cartEntity,
+      addressEntity: AddressEntity(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _order.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +42,10 @@ class CheckOutScreen extends StatelessWidget {
         context,
         title: 'الشحن',
       ),
-      body: Provider.value(
-          value: OrderEntity(
-            cartEntity: cartEntity,
-            addressEntity: AddressEntity(),
-          ),
-          child: CheckOutBody()),
+      body: ChangeNotifierProvider.value(
+        value: _order,
+        child: CheckOutBody(),
+      ),
     );
   }
 }

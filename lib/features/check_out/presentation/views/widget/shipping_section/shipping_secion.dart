@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_app/core/utils/app_colors.dart';
-import 'package:fruits_app/core/utils/app_constant.dart';
+// import 'package:fruits_app/core/utils/app_colors.dart';
+// import 'package:fruits_app/core/utils/app_constant.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../../core/utils/app_text_style.dart';
+// import '../../../../../../core/utils/app_text_style.dart';
 import '../../../../domain/order_entity.dart';
 import 'shipping_item.dart';
 
