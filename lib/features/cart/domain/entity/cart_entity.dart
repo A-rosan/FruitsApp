@@ -26,7 +26,7 @@ class CartEntity {
         return cartItem;
       }
     }
-    return CartItemsEntity(productEntity: products, count: 1);
+    return CartItemsEntity(productEntity: products, quantity: 1);
   }
 
   //remove product from cart

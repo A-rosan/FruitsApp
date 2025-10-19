@@ -4,28 +4,28 @@ import '../../../profile/presentation/views/widgets/dash_board/domain/entities/a
 
 class CartItemsEntity extends Equatable {
   final AddProductInputEntity productEntity;
-  int? count;
+  int? quantity;
 
   CartItemsEntity({
     required this.productEntity,
-    this.count,
+    this.quantity,
   });
 
   num calculateTotalPrice() {
-    return num.parse(productEntity.productPrice!) * count!;
+    return num.parse(productEntity.productPrice!) * quantity!;
   }
 
   num calculateTotalWeight() {
-    return num.parse(productEntity.unitMount!) * count!;
+    return num.parse(productEntity.unitMount!) * quantity!;
   }
 
-  incraseCount() {
-    count = count! + 1;
+  incraseQuantity() {
+    quantity = quantity! + 1;
   }
 
-  decreasCount() {
-    if (count! > 1) {
-      count = count! - 1;
+  decreasQuantity() {
+    if (quantity! > 1) {
+      quantity = quantity! - 1;
     }
   }
 

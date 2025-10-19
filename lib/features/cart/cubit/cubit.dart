@@ -19,7 +19,7 @@ class CartCubit extends Cubit<CartStates> {
     if (isProductExist) {
       log('product exist');
       //increase product count
-      cartItem.incraseCount();
+      cartItem.incraseQuantity();
     } else {
       cartEntity.addCartItem(cartItem);
     }
@@ -39,7 +39,7 @@ class CartCubit extends Cubit<CartStates> {
   void increaseItemCount(AddProductInputEntity productEntity) {
     log('increase product count');
     var item = cartEntity.getProductFromCart(productEntity);
-    item.incraseCount();
+    item.incraseQuantity();
     emit(UpdateCartState());
   }
 
@@ -47,7 +47,7 @@ class CartCubit extends Cubit<CartStates> {
   void decreaseItemCount(AddProductInputEntity productEntity) {
     log('decrease product count');
     var item = cartEntity.getProductFromCart(productEntity);
-    item.decreasCount();
+    item.decreasQuantity();
     emit(UpdateCartState());
   }
 }

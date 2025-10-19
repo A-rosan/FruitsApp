@@ -93,7 +93,7 @@ class CartWidgetBuild extends StatelessWidget {
                             ),
                             Gap(12),
                             Text(
-                              "${cartItemEntity.count}",
+                              "${cartItemEntity.quantity}",
                               style: AppTextStyle.bold13,
                             ),
                             Gap(12),

@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits_app/core/utils/app_constant.dart';
 import 'package:fruits_app/core/widgets/custom_button.dart';
+import 'package:fruits_app/features/check_out/domain/paypal_payment_entity/paypal_payment_entity.dart';
 import 'package:fruits_app/features/check_out/presentation/views/widget/check_out_page_view.dart';
 import 'package:fruits_app/features/check_out/presentation/views/widget/check_out_step_list.dart';
 import 'package:gap/gap.dart';
@@ -12,6 +16,7 @@ import 'package:provider/provider.dart';
 import '../../../../../core/widgets/custom_snack_bar.dart';
 import '../../../domain/address_entity.dart';
 import '../../../domain/order_entity.dart';
+import '../../cubit/cubit.dart';
 // import 'active_step_item.dart';
 // import 'un_active_step_item.dart';
 
@@ -78,6 +83,8 @@ class _CheckOutBodyState extends State<CheckOutBody> {
                 cashValidation(provider, context);
               } else if (currentPageIndex == 1) {
                 addressValidation();
+              } else {
+                prossesPayment(context);
               }
             },
           ),
@@ -127,5 +134,35 @@ class _CheckOutBodyState extends State<CheckOutBody> {
       default:
         return "التالي";
     }
+  }
+
+  void prossesPayment(BuildContext context) {
+    var provider = context.read<OrderEntity>();
+    PayPalEntity payPalEntity = PayPalEntity.fromEntity(provider);
+    var addOrderCubit = context.read<AddOrderCubit>();
+    log(payPalEntity.toJson().toString());
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => PaypalCheckoutView(
+        sandboxMode: true,
+        clientId: "", //TODO put your client id here
+        secretKey: "", //TODO put your secret key here
+        transactions: [payPalEntity.toJson()],
+        note: "Contact us for any questions on your order.",
+        onSuccess: (Map params) async {
+          Navigator.pop(context);
+          addOrderCubit.addOrder(provider);
+          log("onSuccess: $params");
+          customSuccessBar(context, "تم الدفع بنجاح");
+        },
+        onError: (error) {
+          Navigator.pop(context);
+          log("onError: $error");
+          showCustomErrorSnackBar(context, "حدث خطا اثناء الدفع");
+        },
+        onCancel: () {
+          print('cancelled:');
+        },
+      ),
+    ));
   }
 }
