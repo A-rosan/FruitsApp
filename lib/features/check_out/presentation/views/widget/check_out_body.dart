@@ -17,6 +17,7 @@ import '../../../../../core/widgets/custom_snack_bar.dart';
 import '../../../domain/address_entity.dart';
 import '../../../domain/order_entity.dart';
 import '../../cubit/cubit.dart';
+import '../../cubit/states.dart';
 // import 'active_step_item.dart';
 // import 'un_active_step_item.dart';
 
@@ -86,7 +87,9 @@ class _CheckOutBodyState extends State<CheckOutBody> {
                 addressValidation();
               } else {
                 cubit.addOrder(provider);
-                Navigator.of(context).pop();
+                //               cubit.stream.firstWhere((state) => state is AddOrderSuccessState).then((_) {
+                //   Navigator.of(context).pop();
+                // });
                 // prossesPayment(context);
               }
             },

@@ -16,10 +16,11 @@ class AddOrderCubit extends Cubit<AddOrderStates> {
   List<OrderEntity> orders = [];
 
   void addOrder(OrderEntity orderEntity) async {
+    log('Adding order...');
     if (isClosed) return; // avoid doing work if cubit already closed
 
     try {
-      if (!isClosed) emit(OrderLoadingState());
+      emit(OrderLoadingState());
       final result = await ordersRepos.addOrder(orderEntity);
       result.fold(
         (failuer) {
@@ -31,7 +32,7 @@ class AddOrderCubit extends Cubit<AddOrderStates> {
       );
     } catch (e) {
       // If an unexpected exception occurs, emit an error state if still open.
-      if (!isClosed) emit(AddOrderErrorState(e.toString()));
+      emit(AddOrderErrorState(e.toString()));
     }
   }
 
@@ -39,7 +40,7 @@ class AddOrderCubit extends Cubit<AddOrderStates> {
     if (isClosed) return;
     log('Fetching orders...');
     try {
-      if (!isClosed) emit(OrderLoadingState());
+      if (!isClosed) emit(FetchOrderLoadingState());
       final result = await ordersRepos.getOrders();
       result.fold(
         (failure) {

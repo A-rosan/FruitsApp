@@ -9,8 +9,8 @@ import 'package:fruits_app/features/auth/domain/entites/users_intites.dart';
 UsersEntites getUserData() {
   //get user data from shared pref
   String? jsonString = Prefs.getString("userData");
-  var userEntity = UserModel.fromJson(jsonDecode(jsonString ?? ""));
-  if (jsonString == null || jsonString.isEmpty) {
+  var userEntity = UserModel.fromJson(jsonDecode(jsonString!));
+  if (jsonString.isEmpty) {
     return UserModel(
       name: "",
       email: "",

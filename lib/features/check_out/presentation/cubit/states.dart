@@ -6,6 +6,8 @@ class OrderInitialState extends AddOrderStates {}
 
 class OrderLoadingState extends AddOrderStates {}
 
+class FetchOrderLoadingState extends AddOrderStates {}
+
 class AddOrderSuccessState extends AddOrderStates {}
 
 class AddOrderErrorState extends AddOrderStates {
