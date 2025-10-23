@@ -9,6 +9,7 @@ import '../../features/best_selling/presentation/views/best_selling_screen.dart'
 // import '../../features/cart/domain/entity/cart_items_entity.dart';
 import '../../features/check_out/presentation/views/check_out.dart';
 import '../../features/home/presentation/views/main_screen.dart';
+import '../../features/orders/presentation/views/order_screen.dart';
 import '../../features/profile/presentation/views/widgets/dash_board/add_data_screen.dart';
 import '../../features/profile/presentation/views/widgets/dash_board/widgets/dash_board_body.dart';
 
@@ -28,6 +29,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const BestSellingScreen());
     case AddDataScreen.routName:
       return MaterialPageRoute(builder: (context) => const AddDataScreen());
+    case OrderScreen.routName:
+      return MaterialPageRoute(builder: (context) => const OrderScreen());
     case DashBoardBody.routName:
       return MaterialPageRoute(builder: (context) => DashBoardBody());
     case CheckOutScreen.routName:

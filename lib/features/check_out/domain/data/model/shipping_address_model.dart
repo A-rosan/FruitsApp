@@ -27,6 +27,16 @@ class AddressModel {
       phone: entity.phone,
     );
   }
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
+      name: json['name'],
+      email: json['email'],
+      address: json['address'],
+      city: json['city'],
+      floor: json['floor'],
+      phone: json['phone'],
+    );
+  }
   toJson() {
     return {
       'name': name,

@@ -5,4 +5,5 @@ import '../../order_entity.dart';
 
 abstract class OrdersRepos {
   Future<Either<Failuer, void>> addOrder(OrderEntity orderEntity);
+  Future<Either<Failuer, List<OrderEntity>>> getOrders();
 }

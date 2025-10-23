@@ -23,6 +23,15 @@ class OrderProductModel {
       quantity: cartItemsEntity.quantity,
     );
   }
+  factory OrderProductModel.fromJson(Map<String, dynamic> json) {
+    return OrderProductModel(
+      productCode: json['productCode'],
+      productName: json['productName'],
+      productImage: json['productImage'],
+      productPrice: json['productPrice'],
+      quantity: json['quantity'],
+    );
+  }
   toJson() {
     return {
       'productCode': productCode,

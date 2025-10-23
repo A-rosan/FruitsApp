@@ -4,6 +4,7 @@ import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_text_style.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/service/firebase_auth_service.dart';
 import 'widgets/profile_list.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -139,6 +140,7 @@ class ProfileScreen extends StatelessWidget {
           GestureDetector(
             onTap: () {
               //sign out function
+              // FirebaseAuthService().signOut();
             },
             child: Container(
               width: double.infinity,

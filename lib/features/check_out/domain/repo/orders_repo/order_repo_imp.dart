@@ -8,6 +8,7 @@ import 'package:fruits_app/features/check_out/domain/data/model/order_model.dart
 import 'package:fruits_app/features/check_out/domain/order_entity.dart';
 
 import '../../../../../core/utils/end_points.dart';
+import '../../../../cart/domain/entity/cart_entity.dart';
 import 'orders_repo.dart';
 
 class OrderRepoImp implements OrdersRepos {
@@ -24,6 +25,20 @@ class OrderRepoImp implements OrdersRepos {
       return right(null);
     } catch (e) {
       return left(ServerFailuer("حدث خطا في اضافة الطلب $e"));
+    }
+  }
+
+  @override
+  Future<Either<Failuer, List<OrderEntity>>> getOrders() async {
+    try {
+      final result = await fireStoreService.getData(path: EndPoints.getOrder);
+
+      final ordersList = (result as List<dynamic>)
+          .map((orderJson) => OrderModel.fromJson(orderJson).toEntity())
+          .toList();
+      return right(ordersList);
+    } catch (e) {
+      return left(ServerFailuer("حدث خطا في جلب الطلبات $e"));
     }
   }
 }

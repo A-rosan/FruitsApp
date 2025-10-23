@@ -58,6 +58,7 @@ class _CheckOutBodyState extends State<CheckOutBody> {
   @override
   Widget build(BuildContext context) {
     var provider = context.read<OrderEntity>();
+    var cubit = AddOrderCubit.get(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: hrAppPadding,
@@ -84,7 +85,9 @@ class _CheckOutBodyState extends State<CheckOutBody> {
               } else if (currentPageIndex == 1) {
                 addressValidation();
               } else {
-                prossesPayment(context);
+                cubit.addOrder(provider);
+                Navigator.of(context).pop();
+                // prossesPayment(context);
               }
             },
           ),

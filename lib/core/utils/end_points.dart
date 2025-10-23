@@ -6,4 +6,5 @@ class EndPoints {
   static const addProduct = "products";
   static const getProduct = "products";
   static const addOrder = "orders";
+  static const getOrder = "orders";
 }

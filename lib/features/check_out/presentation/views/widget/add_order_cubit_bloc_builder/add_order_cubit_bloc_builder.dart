@@ -20,12 +20,18 @@ class AddOrderCubitBlocBuilder extends StatelessWidget {
       if (state is AddOrderSuccessState) {
         customSuccessBar(context, "تم إضافة الطلب بنجاح");
       }
+      if (state is FetchOrdersSuccessState) {
+        customSuccessBar(context, "تم جلب الطلبات بنجاح");
+      }
+      if (state is FetchOrdersErrorState) {
+        showCustomErrorSnackBar(context, state.error);
+      }
       if (state is AddOrderErrorState) {
         showCustomErrorSnackBar(context, state.error);
       }
     }, builder: (context, state) {
       return CustomProgressHud(
-        isLoading: state is AddOrderLoadingState,
+        isLoading: state is OrderLoadingState,
         child: child,
       );
     });

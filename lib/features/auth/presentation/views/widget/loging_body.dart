@@ -34,7 +34,7 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     var cubit = LoginCubit.get(context);
     return Scaffold(
-      appBar: appBarBuild(context, title: "تسجيل الدخول"),
+      appBar: appBarBuild(context, title: "تسجيل الدخول", isLeading: true),
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).unfocus();

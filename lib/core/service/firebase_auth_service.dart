@@ -153,6 +153,10 @@ class FirebaseAuthService {
     return user != null;
   }
 
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
   // Future<User?> signInWithGoogle() async {
   //   try {
   //     // Trigger the authentication flow
